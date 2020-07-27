@@ -15,6 +15,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+"
+    "url": "git+https://github.com/sash20m/array-methods.git"
   }
 }

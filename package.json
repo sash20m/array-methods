@@ -12,5 +12,9 @@
   "license": "ISC",
   "devDependencies": {
     "typescript": "^3.9.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+"
   }
 }

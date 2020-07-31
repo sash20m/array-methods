@@ -92,7 +92,7 @@ pipe(arr, [
 
 ## Credits
 
-EBS - https://github.com/ebs-integrator/ebs-fe-internship-test-6
+EBS
 
 ## License
 

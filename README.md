@@ -8,10 +8,10 @@ $ npm install axios
 
 ## Methods:
 
-1. **filter** function
-2. **map** function
-3. **find** function
-4. **concat** function
+1. **filter**
+2. **map** 
+3. **find** 
+4. **concat** 
 5. **pipe**
 
 

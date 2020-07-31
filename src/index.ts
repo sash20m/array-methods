@@ -1,7 +1,14 @@
+interface ExecuteFunc<T> {
+  execute: (arr: T[]) => T[];
+}
+
 module.exports = {
-  filter: (ArrOrCallback: any, callback: (item: any) => any): any => {
+  filter: <T>(
+    ArrOrCallback: (item: T) => boolean | Array<T>,
+    callback: (item: T) => boolean
+  ): Array<T> | ExecuteFunc<T> => {
     if (Array.isArray(ArrOrCallback)) {
-      const newArr = [];
+      const newArr: Array<T> = [];
       let j = 0;
       for (let i = 0; i < ArrOrCallback.length; i++) {
         if (callback(ArrOrCallback[i])) {
@@ -11,8 +18,8 @@ module.exports = {
       }
       return newArr;
     }
-    function execute(arr: any) {
-      const newArr = [];
+    function execute(arr: T[]) {
+      const newArr: T[] = [];
       let j = 0;
       for (let i = 0; i < arr.length; i++) {
         if (ArrOrCallback(arr[i])) {
@@ -24,23 +31,22 @@ module.exports = {
     }
 
     return {
-      // return the object ready to execute
       execute,
     };
   },
 
-  map: (
-    ArrOrCallback: (item: any, i: number) => boolean | [],
-    callback: (item: any, i: number) => boolean
-  ) => {
+  map: <T>(
+    ArrOrCallback: (item: T, i: number) => any | Array<T>,
+    callback: (item: T, i: number) => any
+  ): Array<T> | ExecuteFunc<T> => {
     if (Array.isArray(ArrOrCallback)) {
-      const newArr = [];
+      const newArr: Array<T> = [];
       for (let i = 0; i < ArrOrCallback.length; i++) {
         newArr[i] = callback(ArrOrCallback[i], i);
       }
       return newArr;
     }
-    function execute(arr: []) {
+    function execute(arr: T[]) {
       const newArr = [];
       for (let i = 0; i < arr.length; i++) {
         newArr[i] = ArrOrCallback(arr[i], i);
@@ -52,10 +58,10 @@ module.exports = {
     };
   },
 
-  find: (
-    ArrOrCallback: (item: any) => boolean | [],
-    callback: (item: any) => boolean
-  ): any => {
+  find: <T>(
+    ArrOrCallback: (item: T) => boolean | Array<T>,
+    callback: (item: T) => boolean
+  ) => {
     if (Array.isArray(ArrOrCallback)) {
       for (let i = 0; i < ArrOrCallback.length; i++) {
         if (callback(ArrOrCallback[i])) return ArrOrCallback[i];
@@ -72,11 +78,11 @@ module.exports = {
     };
   },
 
-  concat: (arr1: [], arr2: []): any => {
+  concat: <T>(arr1: T[], arr2: T[]) => {
     return [...arr1, ...arr2];
   },
 
-  pipe: (arr: [], callbacks: any[]): any => {
+  pipe: <T>(arr: T[], callbacks: ExecuteFunc<T>[]) => {
     let newArr = arr;
     for (let i = 0; i < callbacks.length; i++) {
       newArr = callbacks[i].execute(newArr);

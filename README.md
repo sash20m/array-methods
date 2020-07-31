@@ -1,11 +1,15 @@
-# EBS Utils
+# Array JS Methods
+
+
+## Instalation
+```npm install arrayjs-methods```
 
 ## Technologies
 
-1. ESLint + Prettier
-2. Typescript
-3. Rollup (to build it as plugin)
-4. Unit tests
+1. Typescript
+2. Eslint + Prettier
+3. TSC
+4. Mocha Testing
 
 ## Methods:
 
@@ -15,13 +19,15 @@
 4. **concat** function
 5. **pipe**
 
-### All the functions do not use regular filter, map, find and concat, they are realized using for(), while() and etc ..
+### All the functions do not use regular filter, map, find and concat, they are realized using for(), if() etc ..
 
 ## filter
 
 - filters elements of array
 
 ```js
+import { filter } from 'arrayjs-methods';
+
 const arr = ["spray", "limit", "elite", "exuberant", "destruction", "present"];
 
 filter(arr, (item) => item.length > 6); // returns ["exuberant", "destruction", "present"]
@@ -30,6 +36,8 @@ filter(arr, (item) => item.length > 6); // returns ["exuberant", "destruction", 
 ## map
 
 ```js
+import { map } from 'arrayjs-methods';
+
 const arr = ["spray", "limit"];
 
 map(arr, (item, index) => ({ id: index, name: item })); // returns [{ id: 0, name: 'spray' }, { id: 1, name: 'limit' }]
@@ -38,6 +46,9 @@ map(arr, (item, index) => ({ id: index, name: item })); // returns [{ id: 0, nam
 ## find
 
 ```js
+import { find } from 'arrayjs-methods';
+
+
 const arr = [
   { id: 0, name: "spray" },
   { id: 1, name: "limit" },
@@ -50,6 +61,9 @@ find(arr, (item) => item.id === id); // returns { id: 1, name: 'limit' }
 ## concat
 
 ```js
+import { concat } from 'arrayjs-methods';
+
+
 const arr1 = ["spray", "limit", "elite"];
 const arr2 = ["exuberant", "destruction", "present"];
 
@@ -59,6 +73,8 @@ concat(arr1, arr2); // returns ['spray', 'limit', 'elite', 'exuberant', 'destruc
 ## pipe
 
 ```js
+import { pipe } from 'arrayjs-methods';
+
 const arr = ["spray", "limit", "elite", "exuberant", "destruction"];
 
 pipe(arr, [

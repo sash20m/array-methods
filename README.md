@@ -3,17 +3,16 @@
 ## Installing
 
 ```bash
-$ npm install axios
+$ npm install arrayjs-methods
 ```
 
 ## Methods:
 
 1. **filter**
-2. **map** 
-3. **find** 
-4. **concat** 
+2. **map**
+3. **find**
+4. **concat**
 5. **pipe**
-
 
 ## Example
 
@@ -22,11 +21,11 @@ $ npm install axios
 Filters the item of an array
 
 ```js
-import { filter } from 'arrayjs-methods';
+import { filter } from "arrayjs-methods";
 
 const arr = ["spray", "limit", "elite", "exuberant", "destruction", "present"];
 
-filter(arr, (item) => item.length > 6); 
+filter(arr, (item) => item.length > 6);
 // returns ["exuberant", "destruction", "present"]
 ```
 
@@ -35,11 +34,11 @@ filter(arr, (item) => item.length > 6);
 Maps the item of an array
 
 ```js
-import { map } from 'arrayjs-methods';
+import { map } from "arrayjs-methods";
 
 const arr = ["spray", "limit"];
 
-map(arr, (item, index) => ({ id: index, name: item })); 
+map(arr, (item, index) => ({ id: index, name: item }));
 // returns [{ id: 0, name: 'spray' }, { id: 1, name: 'limit' }]
 ```
 
@@ -48,7 +47,7 @@ map(arr, (item, index) => ({ id: index, name: item }));
 Find the item in an array
 
 ```js
-import { find } from 'arrayjs-methods';
+import { find } from "arrayjs-methods";
 
 const arr = [
   { id: 0, name: "spray" },
@@ -56,7 +55,7 @@ const arr = [
 ];
 const id = 1;
 
-find(arr, (item) => item.id === id); 
+find(arr, (item) => item.id === id);
 // returns { id: 1, name: 'limit' }
 ```
 
@@ -65,12 +64,12 @@ find(arr, (item) => item.id === id);
 Merges two arrays together
 
 ```js
-import { concat } from 'arrayjs-methods';
+import { concat } from "arrayjs-methods";
 
 const arr1 = ["spray", "limit", "elite"];
 const arr2 = ["exuberant", "destruction", "present"];
 
-concat(arr1, arr2); 
+concat(arr1, arr2);
 // returns ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present']
 ```
 
@@ -79,7 +78,7 @@ concat(arr1, arr2);
 Merges two arrays together
 
 ```js
-import { pipe } from 'arrayjs-methods';
+import { pipe } from "arrayjs-methods";
 
 const arr = ["spray", "limit", "elite", "exuberant", "destruction"];
 
